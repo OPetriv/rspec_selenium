@@ -8,5 +8,4 @@ module HelperMethods
       end
     end
   end
-
 end
