@@ -5,8 +5,8 @@ module ElementsPages
   class Navigation
     include Capybara::DSL
 
-    def elements_page
-      Main.new
+    def main_page
+      MainPage.new
     end  
 
     def basicauth_page
