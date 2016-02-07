@@ -3,7 +3,7 @@ class ChallengingDOM < SitePrism::Page
 
 	element :title, 					:xpath,"//div/h3"
 
-	elements :buttons, 				  :xpath, "//*[contains(@class,\"button\")]"
+	elements :buttons, 				:xpath, "//*[contains(@class,\"button\")]"
 	element :button_alert,    :xpath, "//*[contains(@class,\"button alert\")]"
 	element :button_success,  :xpath, "//*[contains(@class,\"button success\")]"
 
