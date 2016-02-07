@@ -13,14 +13,14 @@ describe 'Challenging DOM'  do
 		@page.elements_page.main.dom.click
 
 		expect(@page.challengingdom_page.title.text).to eq("Challenging DOM")
-		
-		all(:xpath, "//*[contains(@class,\"button\")]")[0].click
+	
+		@page.challengingdom_page.buttons[0].click
 
 		@page.challengingdom_page.button_alert.click
 
 		@page.challengingdom_page.button_success.click
 
-		all(:xpath, "//*[contains(@class,\"button\")]")[0].click
+		@page.challengingdom_page.buttons[0].click
 
 		@page.challengingdom_page.button_alert.click
 
