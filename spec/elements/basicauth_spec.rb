@@ -8,8 +8,8 @@ describe 'Basic Auth'  do
 		mainurl = ENV['SERVER']
 		visit mainurl
 
-		expect(@page.elements_page.main.basicauth[:href]).to eq(mainurl+"/basic_auth")
-		expect(@page.elements_page.main.basicauth.text).to eq("Basic Auth")
+		expect(@page.main_page.main_section.basicauth[:href]).to eq(mainurl+"/basic_auth")
+		expect(@page.main_page.main_section.basicauth.text).to eq("Basic Auth")
 
 		visit "http://admin:admin@the-internet.herokuapp.com/basic_auth"
 
