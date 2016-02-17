@@ -20,6 +20,10 @@ module ElementsPages
     def challengingdom_page
       ChallengingDOM.new
     end
+
+    def checkboxes_page
+      Checkboxes.new
+    end
   end
 end
 
