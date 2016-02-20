@@ -4,9 +4,8 @@ describe 'Elements main page'  do
 
 	it 'Check all link/elements on main page' do
 		@page = ElementsPages::Navigation.new
-		visit ENV['SERVER']
+		@page.main_page.load
 		 
-
 		expect(@page.main_page.main_section.abtest[:href]).to eq("#{ENV['SERVER']}/abtest")
 		expect(@page.main_page.main_section.abtest.text).to eq("A/B Testing")
 
