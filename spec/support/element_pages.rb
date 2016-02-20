@@ -24,6 +24,10 @@ module ElementsPages
     def checkboxes_page
       Checkboxes.new
     end
+    
+    def contextmenu_page
+      ContextMenu.new
+    end
   end
 end
 
