@@ -3,10 +3,8 @@ require 'spec_helper'
 describe 'Broken images'  do
 
   it 'Broken images' do
-
     @page = ElementsPages::Navigation.new
-
-    visit ENV['SERVER']
+    @page.main_page.load
 
     expect(@page.main_page.main_section.brokeimage[:href]).to eq("#{ENV['SERVER']}/broken_images")
     expect(@page.main_page.main_section.brokeimage.text).to eq("Broken Images")

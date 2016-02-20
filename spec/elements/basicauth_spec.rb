@@ -4,11 +4,9 @@ describe 'Basic Auth'  do
 
 	it 'auth' do
 		@page = ElementsPages::Navigation.new
+    @page.main_page.load
 
-		mainurl = ENV['SERVER']
-		visit mainurl
-
-		expect(@page.main_page.main_section.basicauth[:href]).to eq(mainurl+"/basic_auth")
+		expect(@page.main_page.main_section.basicauth[:href]).to eq("#{ENV['SERVER']}/basic_auth")
 		expect(@page.main_page.main_section.basicauth.text).to eq("Basic Auth")
 
 		visit "http://admin:admin@the-internet.herokuapp.com/basic_auth"
