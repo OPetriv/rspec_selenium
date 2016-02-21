@@ -32,6 +32,13 @@ module ElementsPages
     def disappearingelements_page
       DisappearingElements.new
     end
+
+    def draganddrop_page
+      DragandDrop.new
+    end
+
+
+    
   end
 end
 
