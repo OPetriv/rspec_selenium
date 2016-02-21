@@ -120,4 +120,20 @@ desc "Disappearing elements"
     end 
     Rake::Task["spec"].execute 
 end
+
+desc "Dragand drop"
+  task :draganddrop => :environment do
+    task('spec').clear
+
+    RSpec::Core::RakeTask.new(:spec) do |t|
+      r_date = Time.now.strftime("%Y-%m-%d")
+      r_time = Time.now.strftime("%H-%M")
+
+      t.pattern       = './spec/elements/draganddrop_spec.rb'
+      t.rspec_opts    = "--format html --out reports/#{r_date}/#{r_time}_draganddrop.html"
+      t.fail_on_error = false
+      t.verbose = false
+    end 
+    Rake::Task["spec"].execute 
+end
 end
