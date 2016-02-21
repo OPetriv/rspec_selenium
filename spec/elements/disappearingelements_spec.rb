@@ -10,7 +10,7 @@ describe 'Disappearing elements'  do
     expect(@page.main_page.main_section.disselement.text).to eq("Disappearing Elements")
 
     @page.main_page.main_section.disselement.click
-binding.pry
+
     expect(@page.disappearingelements_page.title.text).to eq('Disappearing Elements')
 
   end
