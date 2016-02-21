@@ -28,6 +28,10 @@ module ElementsPages
     def contextmenu_page
       ContextMenu.new
     end
+
+    def disappearingelements_page
+      DisappearingElements.new
+    end
   end
 end
 
