@@ -37,6 +37,10 @@ module ElementsPages
       DragandDrop.new
     end
 
+    def dropdown_page
+      Dropdown.new
+    end
+
 
     
   end
