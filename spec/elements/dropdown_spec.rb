@@ -12,7 +12,16 @@ describe 'Dropdown'  do
     @page.main_page.main_section.dropwdown.click
 
     expect(@page.dropdown_page.title.text).to eq('Dropdown List')
-binding.pry
+
+    expect(@page.dropdown_page.dropdown.text).to eq('Please select an option Option 1 Option 2')
+
+    @page.dropdown_page.dropdown.select 'Option 1'
+    expect(@page.dropdown_page.dropdown.value).to eq('1')
+
+    @page.dropdown_page.dropdown.select 'Option 2'
+    expect(@page.dropdown_page.dropdown.value).to eq('2')
+
+    @page.dropdown_page.dropdown.all(:xpath, 'option')[0..-1].sample.select_option
     
   end
 end

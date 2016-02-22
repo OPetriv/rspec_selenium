@@ -3,5 +3,5 @@ class Dropdown < SitePrism::Page
 
   element :title,   :xpath,"//div/h3"
 
-  element :dropdown,:xpath,'//*[@id=\"dropdown\"]'
+  element :dropdown,:xpath,'//*[@id="dropdown"]'
 end
