@@ -45,8 +45,9 @@ module ElementsPages
       Exitintent.new
     end
 
-
-    
+    def filedownload_page
+      FileDownload.new
+    end   
   end
 end
 
