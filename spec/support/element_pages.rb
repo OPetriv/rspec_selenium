@@ -41,6 +41,10 @@ module ElementsPages
       Dropdown.new
     end
 
+    def exitintent_page
+      Exitintent.new
+    end
+
 
     
   end

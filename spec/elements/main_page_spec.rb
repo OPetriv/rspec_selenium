@@ -42,6 +42,9 @@ describe 'Elements main page'  do
 		expect(@page.main_page.main_section.dynamicload[:href]).to eq("#{ENV['SERVER']}/dynamic_loading")
 		expect(@page.main_page.main_section.dynamicload.text).to eq("Dynamic Loading")
 
+		expect(@page.main_page.main_section.exitintent[:href]).to eq("#{ENV['SERVER']}/exit_intent")
+		expect(@page.main_page.main_section.exitintent.text).to eq("Exit Intent")
+
 		expect(@page.main_page.main_section.fdownload[:href]).to eq("#{ENV['SERVER']}/download")
 		expect(@page.main_page.main_section.fdownload.text).to eq("File Download")
 
