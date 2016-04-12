@@ -48,6 +48,10 @@ module ElementsPages
     def filedownload_page
       FileDownload.new
     end   
+
+    def fileupload_page
+      FileUpload.new
+    end 
   end
 end
 

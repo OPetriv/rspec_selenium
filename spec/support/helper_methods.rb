@@ -21,6 +21,7 @@ module HelperMethods
   expect(alert.text).to eq('You selected a context menu')
   page.driver.browser.switch_to.alert.accept      
   end
+
 end
 
 
