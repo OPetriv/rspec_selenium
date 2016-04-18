@@ -22,6 +22,13 @@ module HelperMethods
   page.driver.browser.switch_to.alert.accept      
   end
 
+  def removefolder 
+    files = Dir.pwd+'/downloadtest'
+    expect(files.empty?).to eql false
+    expect(File.size(files.first)).to be > 0
+    FileUtils.remove_dir(files)
+  end
+
 end
 
 

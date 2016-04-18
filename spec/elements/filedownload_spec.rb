@@ -11,17 +11,9 @@ describe 'File Download'  do
     @page.main_page.main_section.fdownload.click
 
     expect(@page.filedownload_page.title.text).to eq('File Downloader')
-binding.pry
+    @page.filedownload_page.file_load(:text => 'file-uploadop.txt').click
 
-    Dir.mkdir(File.join( "downloadtest"))
-
-    find(:xpath, '//*[@id="content"]/div/a', :text => 'file-uploadop.txt')
-   
-    files = Dir.pwd, 'downloadtest'
-    expect(files.empty?).to eql false
-    expect(File.size(files.first)).to be > 0
-
-    
-Dir.rmdir(files)
+    sleep 5
+    removefolder   
   end
 end
