@@ -13,5 +13,15 @@ describe 'File Download'  do
     expect(@page.filedownload_page.title.text).to eq('File Downloader')
 binding.pry
 
+    Dir.mkdir(File.join( "downloadtest"))
+
+    find(:xpath, '//*[@id="content"]/div/a', :text => 'file-uploadop.txt')
+   
+    files = Dir.pwd, 'downloadtest'
+    expect(files.empty?).to eql false
+    expect(File.size(files.first)).to be > 0
+
+    
+Dir.rmdir(files)
   end
 end
