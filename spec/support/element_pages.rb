@@ -52,6 +52,10 @@ module ElementsPages
     def fileupload_page
       FileUpload.new
     end 
+
+    def floatingmenu_page
+      FloatingMenu.new
+    end 
   end
 end
 
