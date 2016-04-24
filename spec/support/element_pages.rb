@@ -56,6 +56,10 @@ module ElementsPages
     def floatingmenu_page
       FloatingMenu.new
     end 
+
+    def forgotpassword_page
+      ForgotPassword.new
+    end
   end
 end
 
