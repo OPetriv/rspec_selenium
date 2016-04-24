@@ -1,5 +1,5 @@
 class FileUpload < SitePrism::Page
-	set_url '/'
+	set_url '/upload'
   element :title,         :xpath,"//div/h3"
 
   element :choose_but,    :xpath,'//*[@id="file-upload"]'

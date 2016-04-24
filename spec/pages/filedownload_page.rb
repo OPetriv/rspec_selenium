@@ -1,5 +1,5 @@
 class FileDownload < SitePrism::Page
-	set_url '/'
+	set_url '/download'
 
   element :title,        :xpath,'//div/h3'
 
