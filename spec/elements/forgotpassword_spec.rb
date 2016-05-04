@@ -11,13 +11,15 @@ describe 'Forgot password'  do
 		@page.main_page.main_section.forgotpass.click
 
 		expect(@page.forgotpassword_page.title.text).to eq('Forgot Password')
-		@page.forgotpassword_page.email.set 'minimovesautotest@gmail.com'
+		@page.forgotpassword_page.email.set 'elementopetriv@gmail.com'
 		@page.forgotpassword_page.retrievebut.click
 		@page.forgotpassword_page.wait_for_content
 		expect(@page.forgotpassword_page.content.text).to eq('Your e-mail\'s been sent!')
-binding.pry
-		gmail = Gmail.connect('minimovesautotest@gmail.com', 'm*i&n^i%m$o#v@e!sautotest')
-		@email = gmail.inbox.emails(:unread, from: 'no-reply@the-internet.herokuapp.com').last
+
+		gmail = Gmail.connect('elementopetriv@gmail.com', 'elementopetriv@2016')
+		@email = gmail.inbox.emails(:unread, :from => 'no-reply@the-internet.herokuapp.com').last
+
+    wait(6) { @email = gmail.inbox.emails(:unread, from: 'no-reply@the-internet.herokuapp.com').last }
 
 		message_body = @email.message.body.raw_source
 		url =  message_body.scan(/https?:\/\/[\S]+/).last
@@ -26,5 +28,18 @@ binding.pry
 
   	visit url
 
+    @page.forgotpassword_page.username.set username
+    @page.forgotpassword_page.password.set password
+    @page.forgotpassword_page.login.click
+
+    expect(@page.forgotpassword_page.flash.text).to eq('You logged into a secure area! ×')
+
+    expect(@page.forgotpassword_page.title.text).to eq('Secure Area')
+
+    expect(@page.forgotpassword_page.has_logout?).to be true
+
+    gmail.inbox.find(:from => "no-reply@the-internet.herokuapp.com").each do |email|
+      email.delete!
+    end
 end
 end
