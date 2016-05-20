@@ -1,1 +1,0 @@
-Automation test using rspec, capybara, selenium on http://the-internet.herokuapp.com/

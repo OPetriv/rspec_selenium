@@ -6,15 +6,16 @@ describe 'Forgot password'  do
     @page = ElementsPages::Navigation.new
     @page.main_page.load
 
-    expect(@page.main_page.main_section.forgotpass[:href]).to eq("#{ENV['SERVER']}/forgot_password")
-		expect(@page.main_page.main_section.forgotpass.text).to eq("Forgot Password")
-		@page.main_page.main_section.forgotpass.click
+    expect(@page.main_page.main_section.link[16][:href]).to eq("#{ENV['SERVER']}/forgot_password")
+    expect(@page.main_page.main_section.link[16].text).to eq("Forgot Password")
+		@page.main_page.main_section.link[16].click
 
-		expect(@page.forgotpassword_page.title.text).to eq('Forgot Password')
-		@page.forgotpassword_page.email.set 'elementopetriv@gmail.com'
-		@page.forgotpassword_page.retrievebut.click
-		@page.forgotpassword_page.wait_for_content
-		expect(@page.forgotpassword_page.content.text).to eq('Your e-mail\'s been sent!')
+		expect(@page.main_page.forgotpass.fptitle.text).to eq('Forgot Password')
+		
+    @page.main_page.forgotpass.email.set 'elementopetriv@gmail.com'
+		@page.main_page.forgotpass.retrievebut.click
+		@page.main_page.forgotpass.wait_for_content
+		expect(@page.main_page.forgotpass.content.text).to eq('Your e-mail\'s been sent!')
 
 		gmail = Gmail.connect('elementopetriv@gmail.com', 'elementopetriv@2016')
 		@email = gmail.inbox.emails(:unread, :from => 'no-reply@the-internet.herokuapp.com').last
@@ -28,18 +29,18 @@ describe 'Forgot password'  do
 
   	visit url
 
-    @page.forgotpassword_page.username.set username
-    @page.forgotpassword_page.password.set password
-    @page.forgotpassword_page.login.click
+    @page.main_page.forgotpass.username.set username
+    @page.main_page.forgotpass.password.set password
+    @page.main_page.forgotpass.login.click
 
-    expect(@page.forgotpassword_page.flash.text).to eq('You logged into a secure area! ×')
+    expect(@page.main_page.forgotpass.flash.text).to eq('You logged into a secure area! ×')
 
-    expect(@page.forgotpassword_page.title.text).to eq('Secure Area')
+    expect(@page.main_page.forgotpass.fptitle.text).to eq('Secure Area')
 
-    expect(@page.forgotpassword_page.has_logout?).to be true
+    expect(@page.main_page.forgotpass.has_logout?).to be true
 
     gmail.inbox.find(:from => "no-reply@the-internet.herokuapp.com").each do |email|
       email.delete!
-    end
+    end    
 end
 end

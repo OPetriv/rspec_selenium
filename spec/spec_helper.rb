@@ -1,65 +1,36 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
+require 'capybara'
 require 'capybara/rspec'
-require 'capybara/rails'
-require 'shoulda/matchers'
-require 'selenium-webdriver'
 require 'site_prism'
+require 'selenium-webdriver'
 require 'pry'
-require 'securerandom'
-require 'capybara-screenshot'
-require 'capybara-screenshot/rspec'
-require 'capybara/poltergeist'
-require 'faker'
 require 'gmail'
+require 'faker'
 require 'rest-client'
-# Requires supporting ruby files with custom matchers and macros, etc,
-# in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+require './spec/support/helper_methods'
+require './spec/support/element_pages'
 
-# Checks for pending migrations before tests are run.
-# If you are not using ActiveRecord, you can remove this line.
-ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
+Dir['./spec/support/*.rb'].each{ |f| require f }
+
+
 
 RSpec.configure do |config|
   config.before(:suite) do
     Faker::Config.locale = 'en'
   end
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
+  
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+  
+  config.mock_with :rspec do |mocks|   
+    mocks.verify_partial_doubles = true  
+  end
 
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true. 
-  config.use_transactional_fixtures = false 
-  # If true, the base class of anonymous controllers will be inferred
-  # automatically. This will be the default behavior in future versions of
-  # rspec-rails.
-  config.infer_base_class_for_anonymous_controllers = false
   config.include Capybara::DSL
   config.include HelperMethods
-  # Run specs in random order to surface order dependencies. If you find an
-  # order dependency and want to debug it, you can fix the order by providing
-  # the seed, which is printed after each run.
-  #     --seed 1234
+  config.include ElementsPages
+
   config.order = "default"
-
-  # Use color in STDOUT
-  #config.color_enabled = true
-  # Use color not only in STDOUT but also in pagers and files
   config.tty = false
-  # Use the specified formatter
-  config.formatter =:progress #:progress #:documentation , :html, :textmate
-
+  config.formatter =:progress
 end
-
