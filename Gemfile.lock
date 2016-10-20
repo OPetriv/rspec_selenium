@@ -89,7 +89,7 @@ DEPENDENCIES
   capybara (~> 2.6, >= 2.6.2)
   chromedriver-helper (~> 1.0)
   faker (~> 1.6, >= 1.6.3)
-  gmail (~> 0.6.0)
+  gmail
   pry (~> 0.10.3)
   rake (~> 10.4, >= 10.4.2)
   rest-client (~> 1.8)
@@ -99,4 +99,4 @@ DEPENDENCIES
   site_prism (~> 2.9)
 
 BUNDLED WITH
-   1.12.3
+   1.12.5

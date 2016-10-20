@@ -208,4 +208,20 @@ desc "Forgot Password"
     end 
     Rake::Task["spec"].execute 
 end
+
+desc "Form Authentication"
+  task :form_authentication do
+    task('spec').clear
+
+    RSpec::Core::RakeTask.new(:spec) do |t|
+      r_date = Time.now.strftime("%Y-%m-%d")
+      r_time = Time.now.strftime("%H-%M")
+
+      t.pattern       = './spec/elements/form_authentication_spec.rb'
+      t.rspec_opts    = "--format html --out reports/#{r_date}/#{r_time}_form_authentication.html"
+      t.fail_on_error = false
+      t.verbose = false
+    end 
+    Rake::Task["spec"].execute 
+end
 end

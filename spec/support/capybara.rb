@@ -5,7 +5,7 @@ Capybara.register_driver :selenium do |app|
     prefs = {
       :download => {
       :prompt_for_download => false, 
-      :default_directory => "/home/zack/rspec_selenium/downloadtest"
+      :default_directory => "./rspec_selenium/downloadtest"
       }
     }
   Capybara::Selenium::Driver.new(app, :browser => :chrome, :prefs => prefs)
