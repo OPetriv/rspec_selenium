@@ -1,0 +1,52 @@
+AllCops:
+  TargetRubyVersion: 2.6.5
+
+Style/SymbolProc:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Naming/ConstantName:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+# Commonly used screens these days easily fit more than 80 characters.
+Layout/LineLength:
+  Max: 200
+
+# Too short methods lead to extraction of single-use methods, which can make
+# the code easier to read (by naming things), but can also clutter the class
+Metrics/MethodLength:
+  Max: 80
+
+# Class Length
+Metrics/ClassLength:
+  Max: 200
+
+# Methods Length
+Metrics/AbcSize:
+  Max: 50
+
+# BlockLength
+Metrics/BlockLength:
+  Max: 50
+
+# Single quotes being faster is hardly measurable and only affects parse time.
+# Enforcing double quotes reduces the times where you need to change them
+# when introducing an interpolation. Use single quotes only if their semantics
+# are needed.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/NumericLiterals:
+  MinDigits: 6
+  Strict: true
+
+Style/Documentation:
+  Enabled: false

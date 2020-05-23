@@ -1,15 +1,7 @@
 # frozen_string_literal: true
 
-require "capybara"
-require "capybara/rspec"
-require "site_prism"
-require "selenium-webdriver"
-require "pry"
-require "gmail"
-require "faker"
-require "rest-client"
-require_relative "../spec/support/element_pages"
-require_relative "../spec/support/helper_methods"
+require_relative "../spec/support/ages"
+require_relative "../spec/support/thods"
 
 Dir["./spec/support/*.rb"].sort.each { |f| require f }
 
