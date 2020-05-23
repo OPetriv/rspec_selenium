@@ -1,7 +1,9 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-describe 'Broken images'  do
-  it 'Broken images' do
+require "spec_helper"
+
+describe "Broken images" do
+  it "Broken images" do
     @page = ElementsPages::Navigation.new
     @page.main_page.load
 
@@ -10,8 +12,7 @@ describe 'Broken images'  do
 
     @page.main_page.main_section.link[2].click
     expect(@page.main_page.title.text).to eq("Broken Images")
-    
-    status all(:tag_name, 'img')
+
+    status all(:tag_name, "img")
   end
 end
-

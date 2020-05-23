@@ -1,8 +1,9 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-describe 'Exit intent'  do
+require "spec_helper"
 
-  it 'Exit intent' do
+describe "Exit intent" do
+  it "Exit intent" do
     @page = ElementsPages::Navigation.new
     @page.main_page.load
 
@@ -10,6 +11,6 @@ describe 'Exit intent'  do
     expect(@page.main_page.main_section.link[12].text).to eq("Exit Intent")
     @page.main_page.main_section.link[12].click
 
-    expect(@page.main_page.title.text).to eq('Exit Intent')
+    expect(@page.main_page.title.text).to eq("Exit Intent")
   end
 end

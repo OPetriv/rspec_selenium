@@ -1,7 +1,9 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-describe 'File Upload'  do
-  it 'File Upload' do
+require "spec_helper"
+
+describe "File Upload" do
+  it "File Upload" do
     @page = ElementsPages::Navigation.new
     @page.main_page.load
 
@@ -9,14 +11,14 @@ describe 'File Upload'  do
     expect(@page.main_page.main_section.link[14].text).to eq("File Upload")
     @page.main_page.main_section.link[14].click
 
-    expect(@page.main_page.title.text).to eq('File Uploader')
+    expect(@page.main_page.title.text).to eq("File Uploader")
 
-    filename = 'file-uploadop.txt'
+    filename = "file-uploadop.txt"
     file = File.join(Dir.pwd, filename)
 
     @page.main_page.fupload.choose_but.native.send_keys file
     @page.main_page.fupload.upload_but.click
 
-    expect(@page.main_page.fupload.present_file.text).to eq filename    
+    expect(@page.main_page.fupload.present_file.text).to eq filename
   end
 end

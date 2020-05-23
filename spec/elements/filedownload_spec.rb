@@ -1,8 +1,9 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-describe 'File Download'  do
+require "spec_helper"
 
-  it 'File Download' do
+describe "File Download" do
+  it "File Download" do
     @page = ElementsPages::Navigation.new
     @page.main_page.load
 
@@ -10,9 +11,9 @@ describe 'File Download'  do
     expect(@page.main_page.main_section.link[13].text).to eq("File Download")
     @page.main_page.main_section.link[13].click
 
-    expect(@page.main_page.title.text).to eq('File Downloader')
-    @page.main_page.fdownload.file_load(:text => 'file-uploadop.txt').click
+    expect(@page.main_page.title.text).to eq("File Downloader")
+    @page.main_page.fdownload.file_load(text: "file-uploadop.txt").click
     sleep 5
-    removefolder   
+    removefolder
   end
 end

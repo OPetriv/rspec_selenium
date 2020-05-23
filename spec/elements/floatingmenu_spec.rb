@@ -1,9 +1,10 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-describe 'Floating menu'  do
+require "spec_helper"
 
-  it 'Floating menu' do
+describe "Floating menu" do
+  it "Floating menu" do
     @page = ElementsPages::Navigation.new
     @page.main_page.load
-end
+  end
 end

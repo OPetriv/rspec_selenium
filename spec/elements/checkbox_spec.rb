@@ -1,7 +1,9 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-describe 'Checkboxes'  do
-  it 'Checkboxes' do
+require "spec_helper"
+
+describe "Checkboxes" do
+  it "Checkboxes" do
     @page = ElementsPages::Navigation.new
     @page.main_page.load
 
@@ -9,7 +11,7 @@ describe 'Checkboxes'  do
     expect(@page.main_page.main_section.link[4].text).to eq("Checkboxes")
 
     @page.main_page.main_section.link[4].click
-    expect(@page.main_page.title.text).to eq('Checkboxes')
+    expect(@page.main_page.title.text).to eq("Checkboxes")
 
     expect(@page.main_page.checkbox.checkbox_1).not_to be_checked
     expect(@page.main_page.checkbox.checkbox_2).to be_checked

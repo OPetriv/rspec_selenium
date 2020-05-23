@@ -1,9 +1,11 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-describe 'Context menu'  do
-  it 'Context menu' do
-    #This functionality currently only works on Firefox. 
-    #See https://github.com/tourdedave/the-internet/issues/12 for details.
+require "spec_helper"
+
+describe "Context menu" do
+  it "Context menu" do
+    # This functionality currently only works on Firefox.
+    # See https://github.com/tourdedave/the-internet/issues/12 for details.
     @page = ElementsPages::Navigation.new
     @page.main_page.load
 
@@ -12,7 +14,7 @@ describe 'Context menu'  do
 
     @page.main_page.main_section.link[5].click
 
-    expect(@page.main_page.title.text).to eq('Context Menu')
+    expect(@page.main_page.title.text).to eq("Context Menu")
 
     contextmenu
   end

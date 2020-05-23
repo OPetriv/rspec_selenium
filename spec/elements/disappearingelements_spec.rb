@@ -1,7 +1,9 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-describe 'Disappearing elements'  do
-  it 'Disappearing elements' do
+require "spec_helper"
+
+describe "Disappearing elements" do
+  it "Disappearing elements" do
     @page = ElementsPages::Navigation.new
     @page.main_page.load
 
@@ -10,6 +12,6 @@ describe 'Disappearing elements'  do
 
     @page.main_page.main_section.link[6].click
 
-    expect(@page.main_page.title.text).to eq('Disappearing Elements')
+    expect(@page.main_page.title.text).to eq("Disappearing Elements")
   end
 end

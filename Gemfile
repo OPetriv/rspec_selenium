@@ -1,13 +1,16 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
-gem 'capybara', '~> 2.6', '>= 2.6.2'
-gem 'rspec', '~> 3.4'
-gem 'site_prism', '~> 2.9'
-gem 'selenium-webdriver', '~> 2.48', '>= 2.48.1'
-gem 'pry', '~> 0.10.3'
-gem 'rspec-expectations', '~> 3.4'
-gem 'gmail'
-gem 'faker', '~> 1.6', '>= 1.6.3'
-gem 'rest-client', '~> 1.8'
-gem 'rake', '~> 10.4', '>= 10.4.2'
-gem 'chromedriver-helper', '~> 1.0'
+source "https://rubygems.org"
+
+gem "capybara"
+gem "chromedriver-helper"
+gem "faker"
+gem "gmail"
+gem "pry"
+gem "rake"
+gem "rest-client"
+gem "rspec", "~> 3.9"
+gem "rspec-expectations"
+gem "rubocop"
+gem "selenium-webdriver"
+gem "site_prism"
