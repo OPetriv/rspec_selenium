@@ -2,7 +2,7 @@
 
 require_relative "./pages/main_page"
 require_relative "./pages/dnd_page"
-require_relative "./pages/context_menu_page"
+require_relative "./pages/file_upload_page"
 
 
 module Union
@@ -15,8 +15,8 @@ module Union
       Dnd.new
     end
 
-    def context_menu
-      ContextMenu.new
+    def file_upload
+      FileUploadPage.new
     end
   end
 end

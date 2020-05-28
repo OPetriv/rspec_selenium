@@ -9,7 +9,7 @@ Capybara.register_driver :selenium do |app|
   }
   Capybara::Selenium::Driver.new(app, browser: :chrome, prefs: prefs)
 end
-
+# Capybara::Selenium::Driver.new(browser: :firefox)
 ENV["SERVER"] = "http://the-internet.herokuapp.com"
 
 Capybara.configure do |config|
